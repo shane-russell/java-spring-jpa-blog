@@ -15,10 +15,12 @@ public class Post {
     private String lead;
     // lob is a binary value
     // length makes max length of field
-    @Column(length=1000000)
+    @Column(length = 1000000)
     @Lob
     private String body;
     private String author;
+    @ManyToOne
+    private Category category;
 
     // converts to/from java.util.Date and java.util.Calendar
     // DATE, TIME, or TIMESTAMP(both time&date)
@@ -91,4 +93,13 @@ public class Post {
     public void setDate(Date date) {
         this.date = date;
     }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
+    }
+
 }
